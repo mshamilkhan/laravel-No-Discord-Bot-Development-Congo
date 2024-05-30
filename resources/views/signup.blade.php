@@ -1,4 +1,4 @@
-<?php
+{{-- <?php
 include("../database/signupdb.php");
 
 if(isset($_GET['error'])) {
@@ -13,7 +13,7 @@ if(isset($_GET['error'])) {
     }
 }
 
-?>
+?> --}}
 
 
 
@@ -22,14 +22,14 @@ if(isset($_GET['error'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
     <title>Document</title>
 </head>
 <body>
     <div class="main">
 
         <div class="left">
-            <div class="leftimg"><img src="../images/dis.png" alt="Left Image" /></div>
+            <div class="leftimg"><img src="{{ asset('assets/images/dis.png') }}" alt="Left Image" /></div>
             <div class="head">
                 <h1 class="grey">Unlock Your Creativity, No Code Needed</h1>
                 <br />
@@ -41,11 +41,12 @@ if(isset($_GET['error'])) {
         
         <div class="right">
 
-<form action="./signup.php" method="POST">
-
+<form action="{{route('signup.submit')}}"method="POST">
+    @csrf
+    @method('post')
             <div class="loginbox">
 
-                <img  src="../images/msk.png" alt="Logo" class="logoimg" />
+                <img  src="{{ asset('assets/images/msk.png') }}" alt="Logo" class="logoimg" />
                 <div class="logo"></div>
                 
                 <label htmlFor="email">Email</label>
@@ -67,7 +68,7 @@ if(isset($_GET['error'])) {
                 <!-- <p class="forgot" onClick={forgetPasswords}>Forgot Password</p> -->
                 
                 <div class="btnbox">
-                    <button class="btn"><a href="login.php">Login</a></button>
+                    <button class="btn"><a href="{{ route('login.index') }}">Login</a></button>
                     <input type="submit"  value="Signup" class="btn signup" name="signup" onclick=""/>
                     
                 </div>
@@ -77,6 +78,6 @@ if(isset($_GET['error'])) {
         </div>
     </div>
 </body>
-<script src="../assets/javascripts/login.js"></script>
+<script src="{{ asset('assets/javascripts/login.js') }}"></script>
 <script src="../assets/javascripts/signup.js"></script>
 </html>

@@ -20,8 +20,9 @@
         </div>
         
         <div class="right">
-            <form action="login.submit" method="POST">
+            <form action="{{route('login.submit')}}" method="POST">
                 @csrf
+                @method('post')
                 <div class="loginbox">
                     <img  src="{{ asset('assets/images/msk.png') }}" alt="Logo" class="logoimg" />
                     <div class="logo"></div>
@@ -37,7 +38,7 @@
                     
                     <div class="btnbox">
                         <input type="submit"  value="Login" class="btn" name="login"/>
-                        {{-- <button class="btn"><a href="{{ route('signup') }}">Signup</a></button> --}}
+                        <button class="btn"><a href="{{ route('signup.index') }}">Signup</a></button>
                     </div>
                 </div>
             </form>
